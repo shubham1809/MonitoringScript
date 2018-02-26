@@ -9,8 +9,8 @@ import writeToCsv as wtv
 import requests
 import re
 
-def getStatusAndTime(url):
-    print("in getStatusAndTime" )
+def save_url_Status_Time(url):
+    print("in save_url_Status_Time" )
     res=requests.get(url)
     if(re.match("^[2]\d\d$", str(res.status_code))):
         status="UP"
@@ -18,7 +18,7 @@ def getStatusAndTime(url):
         status="Down"
     responce_time=str(res.elapsed.total_seconds()*1000)+"ms"
     wtv.writeToFile(url,status,responce_time)
-    print("out getStatusAndTime" )
+    print("out save_url_Status_Time" )
     
 
 

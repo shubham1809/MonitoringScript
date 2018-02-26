@@ -19,12 +19,12 @@ def initThefile():
     try:
         print("in initThefile" )
         file_name=Constant.log_file_path+str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S'))+".csv"
-        file = open(file_name, 'w')
+        file = open(file_name, 'w',newline='')
         writer = csv.writer(file)
         writer.writerow(Constant.csv_header)
         print("out initThefile" )
-    except:
-        print("error in file while opening")
+    except Exception as e:
+        print(e)
 
 
 
